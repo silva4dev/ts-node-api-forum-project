@@ -13,8 +13,8 @@ describe('Create Question', () => {
   test('should be able to create a question', async () => {
     const { question } = await sut.execute({
       authorId: '1',
-      title: 'Nova pergunta',
-      content: 'Conteúdo da pergunta',
+      title: 'New question',
+      content: 'Example content',
     })
 
     expect(question.id).toBeTruthy()
