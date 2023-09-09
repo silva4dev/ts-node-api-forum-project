@@ -12,7 +12,7 @@ describe('Edit Question', () => {
     sut = new EditQuestionUseCase(inMemoryQuestionsRepository)
   })
 
-  test('should be able to edit a question', async () => {
+  it('should be able to edit a question', async () => {
     const newQuestion = makeQuestion(
       {
         authorId: new UniqueEntityID('author-1'),
@@ -35,7 +35,7 @@ describe('Edit Question', () => {
     })
   })
 
-  test('should not be able to edit a question from another user', async () => {
+  it('should not be able to edit a question from another user', async () => {
     const newQuestion = makeQuestion(
       {
         authorId: new UniqueEntityID('author-1'),
