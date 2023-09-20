@@ -1,9 +1,17 @@
+import { Either, right } from '@/core/either'
 import { AnswersRepository } from '../repositories/answers-repository'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { NotAllowedError } from './errors/not-allowed-error'
 
 interface DeleteAnswerUseCaseRequest {
   authorId: string
   answerId: string
 }
+
+type DeleteAnswerUseCaseResponse = Either<
+  ResourceNotFoundError | NotAllowedError,
+  object
+>
 
 export class DeleteAnswerUseCase {
   constructor(private answersRepository: AnswersRepository) {}
@@ -11,7 +19,7 @@ export class DeleteAnswerUseCase {
   async execute({
     authorId,
     answerId,
-  }: DeleteAnswerUseCaseRequest): Promise<object> {
+  }: DeleteAnswerUseCaseRequest): Promise<DeleteAnswerUseCaseResponse> {
     const answer = await this.answersRepository.findById(answerId)
 
     if (!answer) {
@@ -24,6 +32,6 @@ export class DeleteAnswerUseCase {
 
     await this.answersRepository.delete(answer)
 
-    return {}
+    return right({})
   }
 }
