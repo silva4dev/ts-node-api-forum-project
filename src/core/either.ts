@@ -1,3 +1,5 @@
+// UI -> CTRL -> CASO DE USO -> ENTIDADE -> CASO DE USO -> REPOSITORIO -> BANCO DE DADOS
+
 // Error
 export class Left<L, R> {
   readonly value: L
