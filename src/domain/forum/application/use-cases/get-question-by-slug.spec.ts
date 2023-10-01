@@ -15,6 +15,7 @@ describe('Get Question By Slug', () => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
+
     sut = new GetQuestionBySlugUseCase(inMemoryQuestionsRepository)
   })
 

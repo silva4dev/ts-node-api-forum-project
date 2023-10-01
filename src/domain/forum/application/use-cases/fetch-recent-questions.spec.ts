@@ -14,6 +14,7 @@ describe('Fetch Recent Questions', () => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
+
     sut = new FetchRecentQuestionsUseCase(inMemoryQuestionsRepository)
   })
 
