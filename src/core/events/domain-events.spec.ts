@@ -34,7 +34,7 @@ describe('domain events', () => {
     // Subscriber cadastrado (ouvindo o evento de "resposta criada")
     DomainEvents.register(callbackSpy, CustomAggregateCreated.name)
 
-    // Estou craindo uma resposta porém sem salvar no banco
+    // Estou criando uma resposta porém sem salvar no banco
     const aggregate = CustomAggregate.create()
 
     // Estou assegurando que o evento foi criado porém não foi disparado
